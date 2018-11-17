@@ -3,8 +3,7 @@
 # from collections import Counter
 # from textblob import TextBlob
 from googletrans import Translator
-
-import SmartTrans
+import smartTrans as st
 
 translator = Translator()
 
@@ -19,48 +18,48 @@ try:
     while True:
         print("*** *** *** *** *** *** *** *** *** *** *** ***")
         print("Detecting Language to translate to...")
-        langTo = getCountryLang(getCountryCode())
+        langTo = st.getCountryLang(st.getCountryCode())
         print("What language(lan code) you want to translate to? ( default is", langTo, "): ")
         languageToInput = input()
         if languageToInput.lower() == "end":
             raise StopIteration
-        elif langExists(languageToInput):
+        elif st.langExists(languageToInput):
             langTo = languageToInput
         else:
             print("Will translate to", langTo, "!!!")
-        langToString = getLangString(langTo)
+        langToString = st.getLangString(langTo)
 
-        sentence = getSentence()
+        sentence = st.getSentence()
         print("*** *** ***")
         print("Detecting language...")
         detectedLanguage = translator.detect(sentence)
         langFrom = detectedLanguage.lang;
-        langFromString = getLangString(langFrom)
+        langFromString = st.getLangString(langFrom)
         print("Detected language is", langFromString, "!!!")
         print("*** *** ***")
 
         try:
             while True:
                 print("Translating to", langToString, "...")
-                transText = doTranslate(translator, sentence, langFrom, langTo)
+                transText = st.doTranslate(translator, sentence, langFrom, langTo)
                 print("*** *** ***")
                 print("'" + sentence + "'", "in", langToString, "is:", transText)
                 print("*** *** ***")
 
-                words = getUniqueWords(sentence)
+                words = st.getUniqueWords(sentence)
 
                 # add suggested replies
                 # classify words types
 
                 if len(words) > 1:
-                    englishSentence = doTranslate(translator, sentence, langFrom, "en")
-                    print("This statement is", getSentements(englishSentence))
+                    englishSentence = st.doTranslate(translator, sentence, langFrom, "en")
+                    print("This statement is", st.getSentements(englishSentence))
                     print("*** *** ***")
                     for word in words:
-                        wordTrans = doTranslate(translator, word, langFrom, langTo)
+                        wordTrans = st.doTranslate(translator, word, langFrom, langTo)
                         print("'" + word + "'", "in", langToString, "is:", wordTrans)
                     print("*** *** *** *** *** *** *** *** *** *** *** ***\n")
-                sentence = getSentence()
+                sentence = st.getSentence()
         except StopIteration:
             pass
 
@@ -69,4 +68,3 @@ except StopIteration:
 except:
     print("Something went wrong !!!")
     print("Exiting...")
-
