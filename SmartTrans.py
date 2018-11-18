@@ -4,7 +4,6 @@ from textblob import TextBlob
 from googletrans import Translator
 import requests
 
-
 def getLangString(lang):
     LANGCODES = dict(map(reversed, LANGUAGES.items()))
     simbols = list(LANGCODES.values())

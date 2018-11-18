@@ -3,7 +3,7 @@
 # from collections import Counter
 # from textblob import TextBlob
 from googletrans import Translator
-import smartTrans as st
+import SmartTrans as st
 
 translator = Translator()
 
@@ -33,7 +33,7 @@ try:
         print("*** *** ***")
         print("Detecting language...")
         detectedLanguage = translator.detect(sentence)
-        langFrom = detectedLanguage.lang;
+        langFrom = detectedLanguage.lang
         langFromString = st.getLangString(langFrom)
         print("Detected language is", langFromString, "!!!")
         print("*** *** ***")
