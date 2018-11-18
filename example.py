@@ -1,9 +1,8 @@
-# from googletrans import LANGUAGES
-# import requests
-# from collections import Counter
-# from textblob import TextBlob
+from googletrans import LANGUAGES
+import requests
+from collections import Counter
+from textblob import TextBlob
 from googletrans import Translator
-
 import SmartTrans as st
 
 translator = Translator()
@@ -15,7 +14,7 @@ print("To exit, just enter the word 'End'")
 print("Good luck :)")
 print("*** *** *** *** *** *** *** *** *** *** *** ***\n")
 
-# try:
+try:
 while True:
         print("*** *** *** *** *** *** *** *** *** *** *** ***")
         print("Detecting Language to translate to...")
@@ -64,10 +63,9 @@ while True:
                 sentence = st.getSentence()
         except StopIteration:
             pass
-
-# except StopIteration:
-#     print("See you :)")
-# except:
-#     print("Something went wrong !!!")
-#     print("Exiting...")
-
+          
+except StopIteration:
+    print("See you :)")
+except:
+    print("Something went wrong !!!")
+    print("Exiting...")

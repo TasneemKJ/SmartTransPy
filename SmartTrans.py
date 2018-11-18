@@ -1,8 +1,8 @@
 from googletrans import LANGUAGES
-import requests
 from collections import Counter
 from textblob import TextBlob
 from googletrans import Translator
+import requests
 
 def getLangString(lang):
     LANGCODES = dict(map(reversed, LANGUAGES.items()))
@@ -32,18 +32,11 @@ def getWords(sentence):
     words = sentence.split()
     return words
 
-
-
-
-
-
 def countWords(sentence):
     words = getWords(sentence)
     wordCounter = Counter(words)
     count = sum(wordCounter.values())
     return count
-
-
 
 def getUniqueWords(sentence):
     words = getWords(sentence)
@@ -51,15 +44,10 @@ def getUniqueWords(sentence):
     uniqueWords = wordCounter.keys()
     return uniqueWords
 
-
-
-
 def doTranslate(translator, sentence, langFrom, langTo):
     trans = translator.translate(sentence, src=langFrom, dest=langTo)
     transText = trans.text
     return transText
-
-
 
 def getSentence():
     sentence = ":)"
@@ -80,10 +68,6 @@ def getSentence():
         else:
             reenter = False
     return sentence
-
-
-
-
 
 def getSentements(statement) :
     sentiment = TextBlob(statement)
