@@ -1,7 +1,7 @@
-# from googletrans import LANGUAGES
-# import requests
-# from collections import Counter
-# from textblob import TextBlob
+from googletrans import LANGUAGES
+import requests
+from collections import Counter
+from textblob import TextBlob
 from googletrans import Translator
 import SmartTrans as st
 
@@ -15,7 +15,7 @@ print("Good luck :)")
 print("*** *** *** *** *** *** *** *** *** *** *** ***\n")
 
 try:
-    while True:
+while True:
         print("*** *** *** *** *** *** *** *** *** *** *** ***")
         print("Detecting Language to translate to...")
         langTo = st.getCountryLang(st.getCountryCode())
@@ -30,6 +30,7 @@ try:
         langToString = st.getLangString(langTo)
 
         sentence = st.getSentence()
+        print(sentence)
         print("*** *** ***")
         print("Detecting language...")
         detectedLanguage = translator.detect(sentence)
@@ -62,7 +63,7 @@ try:
                 sentence = st.getSentence()
         except StopIteration:
             pass
-
+          
 except StopIteration:
     print("See you :)")
 except:
