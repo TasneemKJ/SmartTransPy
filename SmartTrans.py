@@ -147,18 +147,18 @@ class SmartTrans :
         uniqueWords = wordCounter.keys()
         return uniqueWords
     
-    def doTranslate(self, sentence, langFrom="en", langTo="en"):
+    def doTranslate(self, sentence, lang_from="en", lang_to="en"):
         """Translates a sentence from alanguage to a nother.
         
         Args:
             sentence: the sentence to translate
-            langFrom: the language to translate the sentence from (default="en")
-            langTo: the language to translate the sentence to (default="en")
+            lang_from: the language to translate the sentence from (default="en")
+            lang_to: the language to translate the sentence to (default="en")
             
         Returns:
             The translated sentence
         """
-        trans = self.getTranslator().translate(sentence, src=langFrom, dest=langTo)
+        trans = self.getTranslator().translate(sentence, src=lang_from, dest=lang_to)
         return trans.text
     
     def getSentence(self):
